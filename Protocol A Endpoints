@@ -1,0 +1,195 @@
+# Objectives and Endpoints {#sec-objectives-and-endpoints}
+
+This protocol has two stages: Stage 1 focuses on algorithm development for the CRI biomarker; Stage 2 focuses on validation of the CRI-Opioid against its reference standard, the participant's concurrent cue-induced opioid wanting rating, with toxicology-confirmed opioid use as the tier-two anchor.
+
+No CRI-Opioid or patient-reported cue-induced wanting rating reaches a treating clinician in either stage, so neither can influence clinical care or, through it, the outcomes the CRI-Opioid is validated against. A separate companion protocol focused on a clinician reader panel and a human-factors simulated-use study evaluates the potential impact of including these measures in care alongside standard measures.
+
+## Study objectives
+
+### Primary objective: Stage 1
+
+**To fit the CRI to ERP data and concurrent cue-induced wanting ratings from adults with OUD, and lock it.** The Algorithm Lock Report is the committed deliverable of this stage.
+
+### Primary objective: Stage 2
+
+**To estimate the standalone accuracy of the locked CRI-Opioid against the pre-specified tier-one reference standard, the participant's cue-induced opioid wanting rating (@sec-reference-standard).** The locked CRI biomarker algorithm will be tested against unseen (held-out) cases and performance measures will be derived and reported. Toxicology-confirmed opioid use is the tier-two validation anchor and is carried as key secondaries.
+
+### Secondary objectives
+
+- **To estimate the incremental validity of the CRI-Opioid against toxicology-confirmed opioid use through 12 months**, over the participant's own cue-induced opioid wanting rating (@sec-incremental-validity-analysis).
+- To describe opioid use, treatment status, and healthcare utilization over 12 months in both stages.
+- To estimate the correlation between the CRI and cue-induced wanting rating.
+- To characterize the psychometric properties of the CRI as descriptive analyses.
+
+### Safety objectives
+
+- To measure participant distress during cue exposure, as an alert rate and a stop rate, in both stages.
+- To describe adverse events and device effects across both stages.
+
+### Exploratory objectives
+
+::: {.content-visible when-meta="tier-longitudinal"}
+- To describe CRI-Opioid trajectory over 12 months in a sub-study of participants that will be followed-up longitudinally, and to model repetition and habituation effects across repeated exposures.
+:::
+
+- To generate additional hypotheses on the CRI-Opioid as a candidate dynamic biomarker for the prediction of clinical outcomes.
+
+## Type I error rate control
+
+The Stage 2 primary endpoint (Se and Sp of the locked CRI-Opioid against the tier-one reference standard, the cue-induced opioid wanting rating) carries a confirmatory alpha. Endpoints outside the Stage 2 primary fall into two kinds:
+
+- **Decision rules.** The two Algorithm Lock criteria, model fit and repeatability (@sec-algorithm-lock), are pre-specified screening processes.
+- **Descriptive estimates.** Everything else is reported as a point estimate with a 95% confidence interval (CI) and is not tested.
+
+```{=html}
+<!-- `secondary_endpoints.multiplicity_gatekeeping_order` and `.sus_acceptable_threshold` were
+     retired from protocol-variables.yaml by ADR 0011 Amendment 2, Group 6. The KNOWN-DRIFT
+     marker that stood here is removed with the drift it recorded. -->
+```
+
+## Stage 1 endpoints
+
+Stage 1 endpoints are developmental by nature, focused on characterizing the device's CRI-Opioid and cue-induced wanting rating outputs.
+
+### Algorithm Lock results
+
+Reported in the Algorithm Lock Report: the cross-validated CRI model fit estimates and the within-session split-half repeatability criterion.
+
+### Other pre-specified Stage 1 readouts
+
+| **Readout** | **Measure** |
+|----------------------------|--------------------------------------------|
+| Determinate rate | Proportion of assessments returning a result rather than **No Result** |
+| CRI-Opioid concurrent association | Pearson *r* between the outer-fold cross-validated CRI-Opioid and the opioid-cue rating, with a participant-clustered bootstrap 95% CI; descriptive, with 0.30 as a reference value. The all-condition *r* is reported as a paradigm descriptor. |
+| Session data quality | Proportion of sessions yielding at least the minimum usable stimulus blocks |
+| Recording quality by hair type | Pre-specified comparison of signal quality and CRI values across hair-texture categories |
+| CRI-Opioid response by route of opioid use | Pre-specified comparison against the routes the cue library depicts |
+| CRI-Opioid response by recency of use | Pre-specified comparison against days since last illicit opioid use |
+| CRI values by color-vision status | Pre-specified comparison of CRI values and determinate rate across color-vision categories |
+| Recording quality by power source | Descriptive comparison of line-noise level, determinate rate and CRI values between battery- and mains-powered sessions, by site where numbers allow; no hypothesis test |
+| Paradigm manipulation check | The drug-minus-neutral contrast, reported with its interval. The cue library was built to separate the stimulus categories, so this describes the paradigm and adds no conditions |
+
+## Stage 2 endpoints
+
+### Primary endpoint
+
+**Sensitivity (Se) and specificity (Sp) of the locked CRI-Opioid at the CRI-Opioid threshold fixed at Algorithm Lock.**
+
+For each Stage 2 assessment, the locked CRI is applied to the session's EEG data and the result is classified as positive or negative at the CRI-Opioid threshold fixed at Algorithm Lock (@sec-algorithm-lock). The participant's concurrent opioid wanting rating on the 1–9 scale is classified as high or low at the single pre-specified operative cut (@sec-algorithm-lock). Each assessment's CRI-Opioid result is compared against its rating, and Se and Sp are estimated over all determinate assessments.
+
+### Success criterion and determinate rate
+
+We define **full success** as all three of the following:
+
+- The lower bound of the two-sided 95% CI on **each** of Se and Sp is **≥ 0.60**;
+- **Se + Sp ≥ 1.45** on point estimates; and
+- At least **50%** of attempted assessments return a result rather than **No Result**, overall (quality failures and abstentions combined).
+
+The determinate rate, the proportion of attempted assessments returning a result rather than **No Result**, is reported per assessment and per participant, separately for quality failures (@sec-quality-failure) and for abstentions under the model's prediction-uncertainty criterion (@sec-device-description). The 50% floor is the minimum result availability overall; a lower rate (31.76%, DEN200069) has been accepted for a De Novo-authorized device, here cited as precedent. An attempted assessment is any session in which the first stimulus block was presented.
+
+<!-- Source held locally at shared/example-products/DEN200069-cognoa-canvas-dx.pdf, an FDA-authored
+     De Novo decision summary — citable primary under AGENTS.md. The path is kept out of the
+     rendered text: an IRB reader cannot resolve a repository path, and DEN200069 is resolvable
+     from FDA's public database. -->
+
+::: callout-important
+## What the study's own probability of meeting this criterion is
+
+At a true Se and Sp of 0.72, the probability of meeting full success is approximately **38%**, and between 31% and 41% across the assumptions the record leaves open about how strongly the reference standard clusters within a participant. At a true 0.75 it is approximately **72%**. These are simulated pass probabilities at the actual design, not expected confidence bounds.
+
+This is the accepted cost of a one-shot design at a sample size the calendar fixes. Raising the goal without raising N converts a reachable study into one that fails unless the device performs better than anything on the record suggests; N cannot be raised. A blinded sample-size re-estimation makes an evaluability shortfall recoverable; it does not turn 38% into 90%, and nothing available at this N would.
+
+Adopted by the sponsor on 2026-08-13. Before the pre-registration deposit, an assessment-level intraclass correlation outside 0.30–0.60, or a reference-positive fraction at the operative cut outside 0.35–0.65 in the deposit audit — a narrower band than the movement band at @sec-operative-cut, which governs the cut itself — recomputes the pass probabilities above; any resulting change to the criterion follows the amendment rule at @sec-operative-cut.
+:::
+
+### Secondary endpoints
+
+Toxicology endpoints reflect FDA's recognized reference standard endpoints for therapeutic OUD devices. Given that the purpose of this protocol is not to evaluate the CRI-Opioid's therapeutic capacity, but rather its association with clinically relevant outcomes, we list toxicology endpoints as secondary and non-gating of the primary.
+
+Additionally, the participant-clustered continuous / non-dichotomized association between the locked CRI and the concurrent cue-induced wanting rating, over all determinate assessments in the Stage 2 primary analysis set, will be estimated and reported.
+
+| **Endpoint** | **Measure** | **Timepoint(s)** |
+|------------------------|------------------------|------------------------|
+| Toxicology-confirmed opioid use | Non-abstinence, classified per participant over the post-baseline toxicology results obtained (@sec-uds, @sec-incremental-validity-analysis) | Through 12 months |
+| **Incremental validity of the CRI-Opioid** | Cross-validated discrimination of toxicology-confirmed opioid use by three models — CRI-Opioid alone, cue-induced opioid wanting rating alone, and both together — reported as AUC per model and as the ΔAUC attributable to the CRI-Opioid, each with a participant-clustered bootstrap 95% CI, under 5-fold participant-grouped cross-validation repeated 20 times (@sec-incremental-validity-analysis) | Through 12 months |
+| Stimulant use | Amphetamine (AMP) and cocaine (COC) analytes | [1, 2, 3, 6, 12 months]{.content-visible when-meta="tier-outcomes"}[2, 3, 6, 9, 12 months]{.content-visible unless-meta="tier-outcomes"} |
+| Within-participant concordance | Clustered concordance index (c-index): for pairs of assessments from the same participant, the probability that the locked CRI is higher for the assessment with the higher cue-induced wanting rating. | All determinate assessments in the Stage 2 primary analysis set; read at the Stage 2 primary database lock |
+
+### Additional secondary endpoints
+
+The endpoints below are supportive of marketing claims.
+
+::: {.content-visible when-meta="tier-outcomes"}
+| **Endpoint** | **Measure** | **Timepoint(s)** |
+|------------------------|------------------------|------------------------|
+| Sleep disturbance | PROMIS-29 Profile v2.1 Sleep Disturbance subscale | Every visit through 12 months |
+| MOUD continuity | Proportion of days covered (PDC) by prescribed MOUD, descriptive | 3, 6, 9, 12 months |
+| Overdose and naloxone events | Fatal and non-fatal opioid overdose and naloxone-administration events from the structured medical-events query, cross-checked against adverse event records | Every visit after baseline, through 12 months |
+| Healthcare resource utilization (HCRU) | Emergency care visits, inpatient admissions and bed-days, detox and residential episodes and bed-days, and 30-day readmissions | Every visit after baseline, through 12 months |
+| Patient-reported outcomes | Change from baseline in the Patient Health Questionnaire (PHQ-8), Emotion Regulation Questionnaire (ERQ), Three-Factor Eating Questionnaire–Revised (TFEQ-R18) and Barratt Impulsiveness Scale (BIS-15) | 3, 6, 9, 12 months |
+| Preference-based health utility | EQ-5D-5L and PROPr, descriptive, supporting cost-utility analysis | Baseline, 3, 6, 9, 12 months |
+| Treatment retention | Time in treatment from Week 0, reported descriptively by the Kaplan-Meier estimator with the proportion retained at each timepoint. No between-arm contrast exists in a single cohort, so no hazard ratio is estimated (@sec-statistical-analysis) | 3, 6, 9, 12 months |
+:::
+
+::: {.content-visible unless-meta="tier-outcomes"}
+| **Endpoint** | **Measure** | **Timepoint(s)** |
+|------------------------|------------------------|------------------------|
+| Sleep disturbance | PROMIS-29 Profile v2.1 Sleep Disturbance subscale | Baseline, 3, 6, 9, 12 months |
+| MOUD continuity | Proportion of days covered (PDC) by prescribed MOUD, descriptive | 3, 6, 9, 12 months |
+| Overdose and naloxone events | Fatal and non-fatal opioid overdose and naloxone-administration events from the structured medical-events query, cross-checked against adverse event records | 2, 3, 6, 9, 12 months |
+| Healthcare resource utilization (HCRU) | Emergency care visits, inpatient admissions and bed-days, detox and residential episodes and bed-days, and 30-day readmissions | 2, 3, 6, 9, 12 months |
+| Treatment retention | Time in treatment from Week 0, reported descriptively by the Kaplan-Meier estimator with the proportion retained at each timepoint. No between-arm contrast exists in a single cohort, so no hazard ratio is estimated (@sec-statistical-analysis) | 3, 6, 9, 12 months |
+:::
+
+### Safety endpoints
+
+| **Endpoint** | **Measure** |
+|-----------------------------|------------------------------------|
+| Distress alert rate | Proportion of sessions, and of participants, triggering the automated ceiling alert on the opioid wanting rating |
+| Session stop rate | Proportion of sessions, and of participants, with a participant-initiated or staff-judged stop |
+| Adverse events and device effects | Incidence, severity, and attribution, reported descriptively |
+
+### Exploratory endpoints
+
+::: {.content-visible when-meta="tier-longitudinal"}
+- **CRI-Opioid trajectory over 12 months** in the longitudinal sub-study, against concurrent opioid wanting ratings and toxicology (@sec-longitudinal-substudy).
+- **Repetition and habituation effects**, modeling presentation number and repetition lag across repeated exposure to a fixed image set. This is a condition of running the sub-study rather than an optional extension of it: without it, an attenuating CRI-Opioid cannot be distinguished from habituation to the stimuli, and a fielded device would read the second as treatment response.
+:::
+
+- **CRI-Opioid by MOUD type**, contingent on sufficient enrollment in each stratum.
+
+::: {.content-visible when-meta="tier-longitudinal"}
+- **Within-person CRI-Opioid change against subsequent toxicology**, as groundwork toward a future monitoring argument. No monitoring claim is made and none is supported by this design.
+:::
+
+- Drug-wanting burden on the Opioid Craving Scale (OCS), [Patient Global Impression of Change (PGIC), benzodiazepine]{.content-visible when-meta="tier-outcomes"}[benzodiazepine]{.content-visible unless-meta="tier-outcomes"} (BNZ) analyte, pre- to post-task change in drug wanting, and PROMIS-29 subscales other than Sleep Disturbance, all descriptive.
+
+<!-- KNOWN-DRIFT: subgroup_high_cri_discordant_prespecified, canonical=undecided, see #281 -->
+
+```{=html}
+<!-- The frozen high CRI-Opioid / clinician-discordant subgroup is not carried into this section. Its
+     discordance rule was retired with the Group 4 fields, so the field names a subgroup no rule
+     defines; and under ADR 0005 no clinician sees a CRI-Opioid, so there is no clinician judgment for
+     a CRI-Opioid to be discordant with. ADR 0011 Decision item 5 holds the field rather than disposing of
+     it, and the question it carries — remove, or restate on band disagreement — is a decision in
+     its own right. The field stays; this section does not carry the endpoint. -->
+```
+
+## CRI measurement characterization
+
+Device-description analyses and psychometric properties, reported in both stages and distinct from the registered endpoints.
+
+| **Property** | **Measure** |
+|-------------------------|--------------------------------------------|
+| Within-session repeatability | Split-half intraclass correlation coefficient (ICC) of the CRI-Opioid on opioid-cue blocks, with halves formed from odd- and even-numbered blocks, in the full-session ICC(2,2) form. |
+| Between-session repeatability | ICC across sessions, with its 95% CI and qualitative scatter plots |
+| Convergent validity | Association among the CRI, the cue-induced wanting rating, and the OCS |
+| Session-state covariates | Hours since the last MOUD dose, MOUD formulation and past-24-hour substance use, entered as covariates in these analyses |
+
+## Hypotheses
+
+**Incremental validity.** The CRI-Opioid contributes discrimination of toxicology-confirmed opioid use through 12 months over a model containing only the participant's concurrent opioid wanting rating. ΔAUC is reported with its 95% CI; no claim of added value over the participant's own report is made unless the lower bound exceeds zero.
+
+**Stage 1, CRI-Opioid concurrent association (descriptive).** The Pearson *r* between the outer-fold cross-validated CRI-Opioid and the opioid-cue rating is a descriptive readout, reported with 0.30 as a reference value; no hypothesis is tested.
+
+**Stage 2, primary.** The locked CRI-Opioid discriminates low versus high dichotomized cue-induced opioid wanting at the operative threshold, with the lower bound of the 95% CI on each of Se and Sp at or above 0.60, Se + Sp at or above 1.45, and at least 50% of attempted assessments returning a result.
